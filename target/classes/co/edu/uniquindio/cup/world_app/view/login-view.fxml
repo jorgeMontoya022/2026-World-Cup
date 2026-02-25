@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="co.edu.uniquindio.cup.world_app.controller.LoginController"
+           styleClass="root-pane"
+           stylesheets="@../css/styles.css">
+
+    <VBox alignment="CENTER" styleClass="login-bg">
+        <VBox alignment="CENTER" spacing="0" styleClass="login-card"
+              maxWidth="420" minWidth="340">
+
+            <HBox styleClass="card-top-bar" minHeight="4" />
+
+            <VBox alignment="CENTER" spacing="16" styleClass="card-body">
+
+                <!-- Logo / Encabezado -->
+                <VBox alignment="CENTER" spacing="6">
+                    <Label text="🏆" styleClass="trophy-icon" />
+                    <Label text="MUNDIAL 2026" styleClass="login-title" />
+                    <Label text="Sistema de Gestión · Base de Datos" styleClass="login-subtitle" />
+                </VBox>
+
+                <!-- Países anfitriones: texto plano, sin cuadritos -->
+                <HBox alignment="CENTER" spacing="6" styleClass="flag-bar">
+                    <Label text="🇲🇽  México"  styleClass="flag-text" />
+                    <Label text="·"             styleClass="flag-separator" />
+                    <Label text="🇺🇸  USA"      styleClass="flag-text" />
+                    <Label text="·"             styleClass="flag-separator" />
+                    <Label text="🇨🇦  Canadá"   styleClass="flag-text" />
+                </HBox>
+
+                <!-- Selector tipo de usuario -->
+                <VBox spacing="8">
+                    <Label text="TIPO DE USUARIO" styleClass="field-label" />
+                    <HBox spacing="8" alignment="CENTER">
+                        <Button fx:id="btnAdmin"
+                                text="👑  Admin"
+                                styleClass="user-type-btn, active"
+                                onAction="#selectAdmin"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        <Button fx:id="btnTradicional"
+                                text="👤  Tradicional"
+                                styleClass="user-type-btn"
+                                onAction="#selectTradicional"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        <Button fx:id="btnEsporadico"
+                                text="👁  Esporádico"
+                                styleClass="user-type-btn"
+                                onAction="#selectEsporadico"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                    </HBox>
+                </VBox>
+
+                <!-- Campo usuario -->
+                <VBox spacing="6">
+                    <Label text="USUARIO" styleClass="field-label" />
+                    <TextField fx:id="txfUsuario"
+                               promptText="Ingresa tu usuario"
+                               styleClass="input-field" />
+                </VBox>
+
+                <!-- Campo contraseña -->
+                <VBox spacing="6">
+                    <Label text="CONTRASEÑA" styleClass="field-label" />
+                    <PasswordField fx:id="txfPassword"
+                                   promptText="••••••••"
+                                   styleClass="input-field" />
+                </VBox>
+
+                <!-- Mensaje de error -->
+                <Label fx:id="lblError"
+                       styleClass="error-label"
+                       visible="false"
+                       managed="false"
+                       wrapText="true" />
+
+                <!-- Botón ingresar -->
+                <Button text="⚽   INGRESAR AL SISTEMA"
+                        styleClass="btn-primary"
+                        onAction="#handleLogin"
+                        maxWidth="Infinity"
+                        defaultButton="true" />
+
+                <Label text="Universidad del Quindío · Bases de Datos I"
+                       styleClass="login-footer" />
+
+            </VBox>
+        </VBox>
+    </VBox>
+</StackPane>

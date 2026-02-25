@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.EquiposController"
+      styleClass="page-container"
+      stylesheets="@../css/styles.css"
+      spacing="16"
+      maxWidth="Infinity"
+      maxHeight="Infinity"
+      VBox.vgrow="ALWAYS">
+
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+    <!-- ══ Encabezado ══ -->
+    <HBox alignment="CENTER_LEFT" spacing="16" maxWidth="Infinity">
+        <VBox HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="🌍  GESTIÓN DE EQUIPOS" styleClass="page-title" />
+            <Label text="Administrar los 48 equipos participantes del Mundial 2026"
+                   styleClass="page-subtitle" />
+        </VBox>
+        <Button text="＋  Nuevo Equipo"
+                styleClass="btn-primary-sm"
+                onAction="#abrirFormularioNuevo" />
+    </HBox>
+
+    <!-- ══ Barra de búsqueda ══ -->
+    <HBox spacing="10" alignment="CENTER_LEFT" maxWidth="Infinity">
+        <TextField fx:id="txfBuscar"
+                   promptText="Buscar equipo, confederación..."
+                   styleClass="input-field"
+                   HBox.hgrow="ALWAYS"
+                   maxWidth="Infinity"
+                   onKeyReleased="#filtrarTabla" />
+
+        <ComboBox fx:id="cmbConfederacion"
+                  promptText="Confederación"
+                  styleClass="combo-field"
+                  onAction="#filtrarTabla"
+                  prefWidth="160" />
+
+        <ComboBox fx:id="cmbPaisSede"
+                  promptText="País sede"
+                  styleClass="combo-field"
+                  onAction="#filtrarTabla"
+                  prefWidth="140" />
+    </HBox>
+
+    <!-- ══ Tabla ══ -->
+    <TableView fx:id="tablaEquipos"
+               styleClass="data-table"
+               VBox.vgrow="ALWAYS"
+               maxWidth="Infinity"
+               maxHeight="Infinity">
+
+        <columns>
+            <TableColumn fx:id="colBandera"  text="Bandera"          minWidth="50"  />
+            <TableColumn fx:id="colPais"     text="País / Equipo"    minWidth="120" />
+            <TableColumn fx:id="colConf"     text="Confederación"    minWidth="100" />
+            <TableColumn fx:id="colDt"       text="Director Técnico" minWidth="140" />
+            <TableColumn fx:id="colValor"    text="Valor Plantilla"  minWidth="100" />
+            <TableColumn fx:id="colGrupo"    text="Grupo"            minWidth="60"  />
+            <TableColumn fx:id="colAcciones" text="Acciones"         minWidth="100" />
+        </columns>
+
+        <placeholder>
+            <Label text="No se encontraron equipos" styleClass="table-placeholder" />
+        </placeholder>
+
+    </TableView>
+
+    <!-- ══ Paginación ══ -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Label fx:id="lblPaginacion"
+               text="Mostrando 1-10 de 48 equipos"
+               styleClass="pagination-info" />
+        <Button fx:id="btnAnterior"
+                text="Anterior"
+                styleClass="btn-ghost-sm"
+                onAction="#paginaAnterior"
+                disable="true" />
+        <Button fx:id="btnSiguiente"
+                text="Siguiente"
+                styleClass="btn-ghost-sm"
+                onAction="#paginaSiguiente" />
+    </HBox>
+
+</VBox>

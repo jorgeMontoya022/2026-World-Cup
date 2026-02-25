@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                co.edu.uniquindio.lab4.world_app/co.edu.uniquindio.lab4.world_app.HelloApplication
+                                co.edu.uniquindio.lab4.world_app/co.edu.uniquindio.cup.world_app.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

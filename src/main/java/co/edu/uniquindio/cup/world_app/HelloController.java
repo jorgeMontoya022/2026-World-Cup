@@ -1,4 +1,4 @@
-package co.edu.uniquindio.lab4.world_app;
+package co.edu.uniquindio.cup.world_app;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

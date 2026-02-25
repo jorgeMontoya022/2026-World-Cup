@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.JugadoresController"
+      styleClass="page-container"
+      stylesheets="@../css/styles.css"
+      spacing="16"
+      maxWidth="Infinity"
+      maxHeight="Infinity"
+      VBox.vgrow="ALWAYS">
+
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+    <!-- ══ Encabezado ══ -->
+    <HBox alignment="CENTER_LEFT" spacing="16" maxWidth="Infinity">
+        <VBox HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="GESTION DE JUGADORES" styleClass="page-title" />
+            <Label text="1.152 jugadores registrados · 24 por equipo"
+                   styleClass="page-subtitle" />
+        </VBox>
+        <Button text="+ Nuevo Jugador"
+                styleClass="btn-primary-sm"
+                onAction="#abrirFormularioNuevo" />
+    </HBox>
+
+    <!-- ══ Barra de búsqueda ══ -->
+    <HBox spacing="10" alignment="CENTER_LEFT" maxWidth="Infinity">
+        <TextField fx:id="txfBuscar"
+                   promptText="Buscar jugador, posicion, equipo..."
+                   styleClass="input-field"
+                   HBox.hgrow="ALWAYS"
+                   maxWidth="Infinity"
+                   onKeyReleased="#filtrarTabla" />
+
+        <ComboBox fx:id="cmbEquipo"
+                  promptText="Equipo"
+                  styleClass="combo-field"
+                  onAction="#filtrarTabla"
+                  prefWidth="160" />
+
+        <ComboBox fx:id="cmbPosicion"
+                  promptText="Posicion"
+                  styleClass="combo-field"
+                  onAction="#filtrarTabla"
+                  prefWidth="150" />
+    </HBox>
+
+    <!-- ══ Tabla ══ -->
+    <TableView fx:id="tablaJugadores"
+               styleClass="data-table"
+               VBox.vgrow="ALWAYS"
+               maxWidth="Infinity"
+               maxHeight="Infinity">
+
+        <columns>
+            <TableColumn fx:id="colNumero"   text="Num"             minWidth="50"  />
+            <TableColumn fx:id="colNombre"   text="Jugador"         minWidth="160" />
+            <TableColumn fx:id="colEquipo"   text="Equipo"          minWidth="130" />
+            <TableColumn fx:id="colPosicion" text="Posicion"        minWidth="120" />
+            <TableColumn fx:id="colEdad"     text="Edad"            minWidth="60"  />
+            <TableColumn fx:id="colPeso"     text="Peso"            minWidth="70"  />
+            <TableColumn fx:id="colEstatura" text="Estatura"        minWidth="80"  />
+            <TableColumn fx:id="colValor"    text="Valor"           minWidth="100" />
+            <TableColumn fx:id="colAcciones" text="Acciones"        minWidth="100" />
+        </columns>
+
+        <placeholder>
+            <Label text="No se encontraron jugadores" styleClass="table-placeholder" />
+        </placeholder>
+
+    </TableView>
+
+    <!-- ══ Paginación ══ -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Label fx:id="lblPaginacion"
+               text="Mostrando 1-10 de 1152 jugadores"
+               styleClass="pagination-info" />
+        <Button fx:id="btnAnterior"
+                text="Anterior"
+                styleClass="btn-ghost-sm"
+                onAction="#paginaAnterior"
+                disable="true" />
+        <Button fx:id="btnSiguiente"
+                text="Siguiente"
+                styleClass="btn-ghost-sm"
+                onAction="#paginaSiguiente" />
+    </HBox>
+
+</VBox>
