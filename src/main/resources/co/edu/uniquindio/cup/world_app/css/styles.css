@@ -523,3 +523,106 @@
     -fx-background-color: transparent;
     -fx-pref-height: 0;
 }
+
+/* ════ GRUPOS ════ */
+.grupos-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.grupos-scroll .viewport {
+    -fx-background-color: transparent;
+}
+.grupos-grid {
+    -fx-background-color: transparent;
+}
+
+.group-card {
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-border-color: rgba(255,255,255,0.08);
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.group-header {
+    -fx-background-color: rgba(245,197,24,0.08);
+    -fx-border-color: transparent transparent rgba(245,197,24,0.1) transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: #F5C518;
+    -fx-font-family: "Impact";
+    -fx-font-size: 14px;
+    -fx-padding: 10 14 10 14;
+}
+
+/* ── Tabla interna de cada grupo ── */
+.group-table {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-table-cell-border-color: rgba(255,255,255,0.04);
+    -fx-padding: 0;
+}
+
+/* Quita el fondo gris del header */
+.group-table .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.group-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(255,255,255,0.06) transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 4 8 4 8;
+}
+
+.group-table .column-header .label {
+    -fx-text-fill: #9AA3B2;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+/* Filas */
+.group-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(255,255,255,0.04) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.group-table .table-row-cell:hover {
+    -fx-background-color: rgba(245,197,24,0.05);
+}
+
+.group-table .table-row-cell:selected {
+    -fx-background-color: rgba(245,197,24,0.1);
+}
+
+/* Celdas */
+.group-table .table-cell {
+    -fx-text-fill: rgba(248,245,238,0.85);
+    -fx-font-size: 12px;
+    -fx-padding: 6 8 6 8;
+    -fx-border-color: transparent;
+}
+
+/* Quita la scrollbar horizontal que a veces aparece */
+.group-table .scroll-bar:horizontal {
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+    -fx-opacity: 0;
+}
+
+/* Scrollbar vertical minimalista */
+.group-table .scroll-bar:vertical {
+    -fx-pref-width: 4;
+    -fx-background-color: transparent;
+}
+.group-table .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(245,197,24,0.2);
+    -fx-background-radius: 2;
+}
+.group-table .scroll-bar:vertical .track,
+.group-table .scroll-bar:vertical .increment-button,
+.group-table .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0;
+}

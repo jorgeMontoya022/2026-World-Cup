@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.TecnicosController"
+      styleClass="page-container"
+      stylesheets="@../css/styles.css"
+      spacing="16"
+      maxWidth="Infinity"
+      maxHeight="Infinity"
+      VBox.vgrow="ALWAYS">
+
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+    <!-- ══ Encabezado ══ -->
+    <HBox alignment="CENTER_LEFT" spacing="16" maxWidth="Infinity">
+        <VBox HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="DIRECTORES TECNICOS" styleClass="page-title" />
+            <Label text="Cuerpo tecnico de los 48 equipos participantes"
+                   styleClass="page-subtitle" />
+        </VBox>
+        <Button text="+ Nuevo Tecnico"
+                styleClass="btn-primary-sm"
+                onAction="#abrirFormularioNuevo" />
+    </HBox>
+
+    <!-- ══ Filtro por nombre ══ -->
+    <HBox spacing="10" alignment="CENTER_LEFT" maxWidth="Infinity">
+        <TextField fx:id="txfBuscar"
+                   promptText="Buscar por nombre del director tecnico..."
+                   styleClass="input-field"
+                   HBox.hgrow="ALWAYS"
+                   maxWidth="Infinity"
+                   onKeyReleased="#filtrarTabla" />
+    </HBox>
+
+    <!-- ══ Tabla ══ -->
+    <TableView fx:id="tablaTecnicos"
+               styleClass="data-table"
+               VBox.vgrow="ALWAYS"
+               maxWidth="Infinity"
+               maxHeight="Infinity">
+
+        <columns>
+            <TableColumn fx:id="colNombre"      text="Nombre completo"  minWidth="180" />
+            <TableColumn fx:id="colNacionalidad" text="Nacionalidad"    minWidth="130" />
+            <TableColumn fx:id="colEquipo"       text="Equipo asignado" minWidth="150" />
+            <TableColumn fx:id="colTitulos"      text="Titulos ganados" minWidth="130" />
+            <TableColumn fx:id="colAcciones"     text="Acciones"        minWidth="110" />
+        </columns>
+
+        <placeholder>
+            <Label text="No se encontraron directores tecnicos"
+                   styleClass="table-placeholder" />
+        </placeholder>
+
+    </TableView>
+
+    <!-- ══ Paginación ══ -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Label fx:id="lblPaginacion"
+               text="Mostrando 1-10 de 48 tecnicos"
+               styleClass="pagination-info" />
+        <Button fx:id="btnAnterior"
+                text="Anterior"
+                styleClass="btn-ghost-sm"
+                onAction="#paginaAnterior"
+                disable="true" />
+        <Button fx:id="btnSiguiente"
+                text="Siguiente"
+                styleClass="btn-ghost-sm"
+                onAction="#paginaSiguiente" />
+    </HBox>
+
+</VBox>
