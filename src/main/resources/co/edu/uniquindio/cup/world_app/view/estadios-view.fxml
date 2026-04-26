@@ -23,7 +23,7 @@
             <Label text="16 estadios en 3 paises anfitriones"
                    styleClass="page-subtitle" />
         </VBox>
-        <Button text="+ Nuevo Estadio"
+        <Button fx:id="btnNuevo" text="+ Nuevo Estadio"
                 styleClass="btn-primary-sm"
                 onAction="#abrirFormularioNuevo" />
     </HBox>

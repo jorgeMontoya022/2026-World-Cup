@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.DashboardController"
+      styleClass="page-container"
+      stylesheets="@../css/styles.css"
+      spacing="20"
+      maxWidth="Infinity" maxHeight="Infinity"
+      VBox.vgrow="ALWAYS">
+
+    <padding><Insets top="28" right="32" bottom="28" left="32"/></padding>
+
+    <!-- ══ Encabezado ══ -->
+    <VBox spacing="4">
+        <Label fx:id="lblBienvenida" styleClass="page-title" text="BIENVENIDO" />
+        <Label styleClass="page-subtitle"
+               text="Mundial 2026 · México · USA · Canadá — Resumen del sistema" />
+    </VBox>
+
+    <ScrollPane fitToWidth="true" styleClass="grupos-scroll" VBox.vgrow="ALWAYS">
+        <VBox spacing="20">
+            <padding><Insets top="2" right="2" bottom="8" left="2"/></padding>
+
+            <!-- ══ Tarjetas de estadísticas ══ -->
+            <GridPane hgap="16" vgap="16">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25" />
+                </columnConstraints>
+
+                <!-- Equipos -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="🌍" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalEquipos" text="—" styleClass="stat-number" />
+                    <Label text="Equipos" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Jugadores -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="⚽" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalJugadores" text="—" styleClass="stat-number" />
+                    <Label text="Jugadores" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Técnicos -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <Label text="🧑‍💼" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalTecnicos" text="—" styleClass="stat-number" />
+                    <Label text="Técnicos" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Estadios -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <Label text="🏟️" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalEstadios" text="—" styleClass="stat-number" />
+                    <Label text="Estadios" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Partidos -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="🎯" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalPartidos" text="—" styleClass="stat-number" />
+                    <Label text="Partidos" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Grupos -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label text="📋" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalGrupos" text="12" styleClass="stat-number" />
+                    <Label text="Grupos" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Usuarios -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <Label text="👥" styleClass="stat-icon" />
+                    <Label fx:id="lblTotalUsuarios" text="—" styleClass="stat-number" />
+                    <Label text="Usuarios" styleClass="stat-label" />
+                </VBox>
+
+                <!-- Sesiones hoy -->
+                <VBox styleClass="stat-card" spacing="6"
+                      GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <Label text="📒" styleClass="stat-icon" />
+                    <Label fx:id="lblSesionesHoy" text="—" styleClass="stat-number" />
+                    <Label text="Sesiones hoy" styleClass="stat-label" />
+                </VBox>
+
+            </GridPane>
+
+            <!-- ══ Fila inferior: Países sede + Jugador más valioso + Sesión ══ -->
+            <GridPane hgap="16" vgap="16">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33" />
+                    <ColumnConstraints percentWidth="34" />
+                    <ColumnConstraints percentWidth="33" />
+                </columnConstraints>
+
+                <!-- Equipos por país sede -->
+                <VBox styleClass="group-card" spacing="0"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="Equipos por país sede"
+                           styleClass="group-header" maxWidth="Infinity" />
+                    <VBox spacing="10" styleClass="dash-card-body">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="🇲🇽  México"  styleClass="dash-country-label" HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="lblEqMexico"  text="—" styleClass="dash-country-count" />
+                        </HBox>
+                        <Separator styleClass="dash-sep" />
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="🇺🇸  USA"     styleClass="dash-country-label" HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="lblEqUSA"     text="—" styleClass="dash-country-count" />
+                        </HBox>
+                        <Separator styleClass="dash-sep" />
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="🇨🇦  Canadá"  styleClass="dash-country-label" HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="lblEqCanada"  text="—" styleClass="dash-country-count" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <!-- Jugador más valioso -->
+                <VBox styleClass="group-card" spacing="0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="⭐  Jugador más valioso"
+                           styleClass="group-header" maxWidth="Infinity" />
+                    <VBox spacing="8" styleClass="dash-card-body" alignment="CENTER">
+                        <Label fx:id="lblMvpNombre"  text="—"
+                               styleClass="dash-mvp-nombre" wrapText="true" />
+                        <Label fx:id="lblMvpEquipo"  text="—"
+                               styleClass="dash-mvp-equipo" />
+                        <Label fx:id="lblMvpValor"   text="—"
+                               styleClass="dash-mvp-valor" />
+                    </VBox>
+                </VBox>
+
+                <!-- Info de sesión actual -->
+                <VBox styleClass="group-card" spacing="0"
+                      GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <Label text="🔐  Sesión actual"
+                           styleClass="group-header" maxWidth="Infinity" />
+                    <VBox spacing="10" styleClass="dash-card-body">
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="Usuario:"    styleClass="dash-info-key" />
+                            <Label fx:id="lblSesionUsuario" text="—" styleClass="dash-info-val" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="Rol:"        styleClass="dash-info-key" />
+                            <Label fx:id="lblSesionRol"     text="—" styleClass="dash-info-val" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="Ingreso:"    styleClass="dash-info-key" />
+                            <Label fx:id="lblSesionHora"    text="—" styleClass="dash-info-val" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="Permisos:"   styleClass="dash-info-key" />
+                            <Label fx:id="lblSesionPermisos" text="—" styleClass="dash-info-val" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+            </GridPane>
+
+            <!-- ══ Grupos rápidos (resumen A-D) ══ -->
+            <VBox styleClass="group-card" spacing="0">
+                <Label text="📋  Grupos — Vista rápida"
+                       styleClass="group-header" maxWidth="Infinity" />
+                <GridPane fx:id="gridGruposRapidos" hgap="12" vgap="8">
+                    <padding><Insets top="12" right="16" bottom="12" left="16"/></padding>
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+                    <!-- Se llena dinámicamente desde el controlador -->
+                </GridPane>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

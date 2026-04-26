@@ -11,31 +11,34 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="Infinity" maxWidth="Infinity" spacing="16" styleClass="page-container" stylesheets="@../css/styles.css" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.cup.world_app.controller.GruposController">
+<VBox maxHeight="Infinity" maxWidth="Infinity" spacing="16"
+      styleClass="page-container" stylesheets="@../css/styles.css"
+      VBox.vgrow="ALWAYS"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.GruposController">
 
     <padding><Insets bottom="24" left="28" right="28" top="24" /></padding>
 
-    <!-- ══ Encabezado ══ -->
     <HBox alignment="CENTER_LEFT" maxWidth="Infinity">
         <VBox spacing="4" HBox.hgrow="ALWAYS">
-            <Label styleClass="page-title" text="GRUPOS - FASE INICIAL" />
+            <Label styleClass="page-title" text="GRUPOS — FASE INICIAL" />
             <Label styleClass="page-subtitle" text="12 grupos · 4 equipos por grupo" />
         </VBox>
     </HBox>
 
-    <!-- ══ Cuadrícula de grupos ══ -->
     <ScrollPane fitToWidth="true" styleClass="grupos-scroll" VBox.vgrow="ALWAYS">
         <GridPane hgap="16" styleClass="grupos-grid" vgap="16">
             <padding><Insets bottom="4" left="4" right="4" top="4" /></padding>
 
             <!-- ══ GRUPO A ══ -->
             <VBox styleClass="group-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <Label maxWidth="Infinity" prefWidth="231.0" styleClass="group-header" text="Grupo A" />
+                <Label maxWidth="Infinity" styleClass="group-header" text="Grupo A" />
                 <TableView fx:id="tablaGrupoA" fixedCellSize="36" maxWidth="Infinity" prefHeight="180" styleClass="group-table">
                     <columns>
                         <TableColumn fx:id="colPosA" maxWidth="30" minWidth="30" text="#" />
                         <TableColumn fx:id="colEquipoA" minWidth="100" text="Equipo" />
-                        <TableColumn fx:id="colPtsA" maxWidth="50.0" minWidth="40" text="Pts" />
+                        <TableColumn fx:id="colPtsA" maxWidth="50" minWidth="40" text="Pts" />
                     </columns>
                     <placeholder><Label text="" /></placeholder>
                 </TableView>
@@ -132,16 +135,69 @@
                 </TableView>
             </VBox>
 
+            <!-- ══ GRUPO I ══ -->
+            <VBox styleClass="group-card" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <Label maxWidth="Infinity" styleClass="group-header" text="Grupo I" />
+                <TableView fx:id="tablaGrupoI" fixedCellSize="36" maxWidth="Infinity" prefHeight="180" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colPosI" maxWidth="30" minWidth="30" text="#" />
+                        <TableColumn fx:id="colEquipoI" minWidth="100" text="Equipo" />
+                        <TableColumn fx:id="colPtsI" maxWidth="50" minWidth="40" text="Pts" />
+                    </columns>
+                    <placeholder><Label text="" /></placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- ══ GRUPO J ══ -->
+            <VBox styleClass="group-card" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label maxWidth="Infinity" styleClass="group-header" text="Grupo J" />
+                <TableView fx:id="tablaGrupoJ" fixedCellSize="36" maxWidth="Infinity" prefHeight="180" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colPosJ" maxWidth="30" minWidth="30" text="#" />
+                        <TableColumn fx:id="colEquipoJ" minWidth="100" text="Equipo" />
+                        <TableColumn fx:id="colPtsJ" maxWidth="50" minWidth="40" text="Pts" />
+                    </columns>
+                    <placeholder><Label text="" /></placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- ══ GRUPO K ══ -->
+            <VBox styleClass="group-card" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <Label maxWidth="Infinity" styleClass="group-header" text="Grupo K" />
+                <TableView fx:id="tablaGrupoK" fixedCellSize="36" maxWidth="Infinity" prefHeight="180" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colPosK" maxWidth="30" minWidth="30" text="#" />
+                        <TableColumn fx:id="colEquipoK" minWidth="100" text="Equipo" />
+                        <TableColumn fx:id="colPtsK" maxWidth="50" minWidth="40" text="Pts" />
+                    </columns>
+                    <placeholder><Label text="" /></placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- ══ GRUPO L ══ -->
+            <VBox styleClass="group-card" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <Label maxWidth="Infinity" styleClass="group-header" text="Grupo L" />
+                <TableView fx:id="tablaGrupoL" fixedCellSize="36" maxWidth="Infinity" prefHeight="180" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colPosL" maxWidth="30" minWidth="30" text="#" />
+                        <TableColumn fx:id="colEquipoL" minWidth="100" text="Equipo" />
+                        <TableColumn fx:id="colPtsL" maxWidth="50" minWidth="40" text="Pts" />
+                    </columns>
+                    <placeholder><Label text="" /></placeholder>
+                </TableView>
+            </VBox>
+
             <columnConstraints>
                 <ColumnConstraints percentWidth="25" />
                 <ColumnConstraints percentWidth="25" />
                 <ColumnConstraints percentWidth="25" />
                 <ColumnConstraints percentWidth="25" />
             </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
 
         </GridPane>
     </ScrollPane>

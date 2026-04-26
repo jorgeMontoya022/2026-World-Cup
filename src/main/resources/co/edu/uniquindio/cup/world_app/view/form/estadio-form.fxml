@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.form.EstadioFormController"
+      styleClass="form-root"
+      stylesheets="@../../css/styles.css"
+      spacing="0"
+      minWidth="440" maxWidth="440">
+
+    <HBox styleClass="form-top-bar" minHeight="4" maxHeight="4" />
+
+    <VBox styleClass="form-header" spacing="4">
+        <Label fx:id="lblTitulo" text="NUEVO ESTADIO" styleClass="form-title" />
+        <Label fx:id="lblSubtitulo" text="Estadio sede del Mundial 2026"
+               styleClass="form-subtitle" />
+    </VBox>
+
+    <VBox styleClass="form-body" spacing="14">
+
+        <VBox spacing="5">
+            <Label text="NOMBRE DEL ESTADIO" styleClass="field-label" />
+            <TextField fx:id="txfNombre" promptText="Ej: Estadio Azteca"
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="CIUDAD" styleClass="field-label" />
+            <ComboBox fx:id="cmbCiudad" promptText="Seleccionar ciudad..."
+                      styleClass="combo-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="CAPACIDAD" styleClass="field-label" />
+            <TextField fx:id="txfCapacidad" promptText="Ej: 87523"
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <Label fx:id="lblError" styleClass="form-error"
+               visible="false" managed="false" wrapText="true" />
+
+    </VBox>
+
+    <HBox styleClass="form-footer" spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-ghost-sm" onAction="#cancelar" />
+        <Button fx:id="btnGuardar" text="Guardar Estadio"
+                styleClass="btn-primary-sm" onAction="#guardar"
+                defaultButton="true" />
+    </HBox>
+
+</VBox>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.form.EquipoFormController"
+      styleClass="form-root"
+      stylesheets="@../../css/styles.css"
+      spacing="0"
+      minWidth="480" maxWidth="480">
+
+    <!-- Barra superior de color -->
+    <HBox styleClass="form-top-bar" minHeight="4" maxHeight="4" />
+
+    <!-- Encabezado -->
+    <VBox styleClass="form-header" spacing="4">
+        <Label fx:id="lblTitulo" text="NUEVO EQUIPO" styleClass="form-title" />
+        <Label fx:id="lblSubtitulo" text="Completa los datos del equipo participante"
+               styleClass="form-subtitle" />
+    </VBox>
+
+    <!-- Cuerpo del formulario -->
+    <VBox styleClass="form-body" spacing="14">
+
+        <!-- País -->
+        <VBox spacing="5">
+            <Label text="PAÍS / SELECCIÓN" styleClass="field-label" />
+            <TextField fx:id="txfPais" promptText="Ej: Brasil, Argentina..."
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <!-- Bandera -->
+        <VBox spacing="5">
+            <Label text="CÓDIGO DE BANDERA" styleClass="field-label" />
+            <TextField fx:id="txfBandera" promptText="Ej: BR, AR, MX..."
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <!-- Confederación y Grupo en fila -->
+        <HBox spacing="12">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="CONFEDERACIÓN" styleClass="field-label" />
+                <ComboBox fx:id="cmbConfederacion" promptText="Seleccionar..."
+                          styleClass="combo-field" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="GRUPO" styleClass="field-label" />
+                <ComboBox fx:id="cmbGrupo" promptText="Seleccionar..."
+                          styleClass="combo-field" maxWidth="Infinity" />
+            </VBox>
+        </HBox>
+
+        <!-- Valor plantilla -->
+        <VBox spacing="5">
+            <Label text="VALOR PLANTILLA (millones €)" styleClass="field-label" />
+            <TextField fx:id="txfValor" promptText="Ej: 850.00"
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <!-- Mensaje de error -->
+        <Label fx:id="lblError" styleClass="form-error"
+               visible="false" managed="false" wrapText="true" />
+
+    </VBox>
+
+    <!-- Botones -->
+    <HBox styleClass="form-footer" spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-ghost-sm" onAction="#cancelar" />
+        <Button fx:id="btnGuardar" text="Guardar Equipo"
+                styleClass="btn-primary-sm" onAction="#guardar"
+                defaultButton="true" />
+    </HBox>
+
+</VBox>

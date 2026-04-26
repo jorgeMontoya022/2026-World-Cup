@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.PartidosController"
+      styleClass="page-container"
+      stylesheets="@../css/styles.css"
+      spacing="16"
+      maxWidth="Infinity" maxHeight="Infinity"
+      VBox.vgrow="ALWAYS">
+
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="16" maxWidth="Infinity">
+        <VBox HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="🎯  PARTIDOS — FASE DE GRUPOS" styleClass="page-title" />
+            <Label text="Gestión de los partidos de la fase inicial" styleClass="page-subtitle" />
+        </VBox>
+        <Button fx:id="btnNuevo" text="+ Nuevo Partido" styleClass="btn-primary-sm"
+                onAction="#abrirFormularioNuevo" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT" maxWidth="Infinity">
+        <ComboBox fx:id="cmbGrupo" promptText="Filtrar por grupo" styleClass="combo-field"
+                  onAction="#filtrarTabla" prefWidth="160" />
+        <ComboBox fx:id="cmbEstadio" promptText="Filtrar por estadio" styleClass="combo-field"
+                  onAction="#filtrarTabla" prefWidth="220" />
+    </HBox>
+
+    <TableView fx:id="tablaPartidos" styleClass="data-table"
+               VBox.vgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
+        <columns>
+            <TableColumn fx:id="colGrupo"     text="Grupo"      minWidth="70"  />
+            <TableColumn fx:id="colLocal"     text="Local"      minWidth="150" />
+            <TableColumn fx:id="colVisitante" text="Visitante"  minWidth="150" />
+            <TableColumn fx:id="colEstadio"   text="Estadio"    minWidth="160" />
+            <TableColumn fx:id="colFecha"     text="Fecha/Hora" minWidth="150" />
+            <TableColumn fx:id="colResultado" text="Resultado"  minWidth="90"  />
+            <TableColumn fx:id="colAcciones"  text="Acciones"   minWidth="110" />
+        </columns>
+        <placeholder>
+            <Label text="No se encontraron partidos" styleClass="table-placeholder" />
+        </placeholder>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Label fx:id="lblPaginacion" styleClass="pagination-info" text="Mostrando 0 partidos" />
+        <Button fx:id="btnAnterior" text="Anterior" styleClass="btn-ghost-sm"
+                onAction="#paginaAnterior" disable="true" />
+        <Button fx:id="btnSiguiente" text="Siguiente" styleClass="btn-ghost-sm"
+                onAction="#paginaSiguiente" />
+    </HBox>
+
+</VBox>

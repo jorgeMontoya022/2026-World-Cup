@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.form.JugadorFormController"
+      styleClass="form-root"
+      stylesheets="@../../css/styles.css"
+      spacing="0"
+      minWidth="520" maxWidth="520">
+
+    <HBox styleClass="form-top-bar" minHeight="4" maxHeight="4" />
+
+    <VBox styleClass="form-header" spacing="4">
+        <Label fx:id="lblTitulo" text="NUEVO JUGADOR" styleClass="form-title" />
+        <Label fx:id="lblSubtitulo" text="Datos del jugador participante"
+               styleClass="form-subtitle" />
+    </VBox>
+
+    <VBox styleClass="form-body" spacing="14">
+
+        <!-- Nombre y Apellido -->
+        <HBox spacing="12">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="NOMBRE" styleClass="field-label" />
+                <TextField fx:id="txfNombre" promptText="Nombre"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="APELLIDO" styleClass="field-label" />
+                <TextField fx:id="txfApellido" promptText="Apellido"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+        </HBox>
+
+        <!-- Fecha nacimiento y Número camiseta -->
+        <HBox spacing="12">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="FECHA DE NACIMIENTO" styleClass="field-label" />
+                <DatePicker fx:id="dpFechaNacimiento" styleClass="date-field"
+                            maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="NÚMERO CAMISETA" styleClass="field-label" />
+                <TextField fx:id="txfNumero" promptText="Ej: 10"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+        </HBox>
+
+        <!-- Posición y Equipo -->
+        <HBox spacing="12">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="POSICIÓN" styleClass="field-label" />
+                <ComboBox fx:id="cmbPosicion" promptText="Seleccionar..."
+                          styleClass="combo-field" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="EQUIPO" styleClass="field-label" />
+                <ComboBox fx:id="cmbEquipo" promptText="Seleccionar..."
+                          styleClass="combo-field" maxWidth="Infinity" />
+            </VBox>
+        </HBox>
+
+        <!-- Peso, Estatura y Valor -->
+        <HBox spacing="12">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="PESO (kg)" styleClass="field-label" />
+                <TextField fx:id="txfPeso" promptText="Ej: 75.5"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="ESTATURA (m)" styleClass="field-label" />
+                <TextField fx:id="txfEstatura" promptText="Ej: 1.80"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="VALOR (M€)" styleClass="field-label" />
+                <TextField fx:id="txfValor" promptText="Ej: 45.00"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+        </HBox>
+
+        <Label fx:id="lblError" styleClass="form-error"
+               visible="false" managed="false" wrapText="true" />
+
+    </VBox>
+
+    <HBox styleClass="form-footer" spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-ghost-sm" onAction="#cancelar" />
+        <Button fx:id="btnGuardar" text="Guardar Jugador"
+                styleClass="btn-primary-sm" onAction="#guardar"
+                defaultButton="true" />
+    </HBox>
+
+</VBox>

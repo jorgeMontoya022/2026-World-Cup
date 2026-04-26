@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.form.TecnicoFormController"
+      styleClass="form-root"
+      stylesheets="@../../css/styles.css"
+      spacing="0"
+      minWidth="460" maxWidth="460">
+
+    <HBox styleClass="form-top-bar" minHeight="4" maxHeight="4" />
+
+    <VBox styleClass="form-header" spacing="4">
+        <Label fx:id="lblTitulo" text="NUEVO TÉCNICO" styleClass="form-title" />
+        <Label fx:id="lblSubtitulo" text="Director técnico del equipo participante"
+               styleClass="form-subtitle" />
+    </VBox>
+
+    <VBox styleClass="form-body" spacing="14">
+
+        <HBox spacing="12">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="NOMBRE" styleClass="field-label" />
+                <TextField fx:id="txfNombre" promptText="Nombre"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="APELLIDO" styleClass="field-label" />
+                <TextField fx:id="txfApellido" promptText="Apellido"
+                           styleClass="input-field" maxWidth="Infinity" />
+            </VBox>
+        </HBox>
+
+        <VBox spacing="5">
+            <Label text="NACIONALIDAD" styleClass="field-label" />
+            <TextField fx:id="txfNacionalidad" promptText="Ej: Argentino, Español..."
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="EQUIPO ASIGNADO" styleClass="field-label" />
+            <ComboBox fx:id="cmbEquipo" promptText="Seleccionar equipo..."
+                      styleClass="combo-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="TÍTULOS GANADOS" styleClass="field-label" />
+            <TextField fx:id="txfTitulos" promptText="Ej: 2"
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <Label fx:id="lblError" styleClass="form-error"
+               visible="false" managed="false" wrapText="true" />
+
+    </VBox>
+
+    <HBox styleClass="form-footer" spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-ghost-sm" onAction="#cancelar" />
+        <Button fx:id="btnGuardar" text="Guardar Técnico"
+                styleClass="btn-primary-sm" onAction="#guardar"
+                defaultButton="true" />
+    </HBox>
+
+</VBox>

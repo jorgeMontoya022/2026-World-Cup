@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.form.UsuarioFormController"
+      styleClass="form-root"
+      stylesheets="@../../css/styles.css"
+      spacing="0"
+      minWidth="440" maxWidth="440">
+
+    <HBox styleClass="form-top-bar" minHeight="4" maxHeight="4" />
+
+    <VBox styleClass="form-header" spacing="4">
+        <Label fx:id="lblTitulo" text="NUEVO USUARIO" styleClass="form-title" />
+        <Label fx:id="lblSubtitulo" text="Solo el Administrador puede crear usuarios"
+               styleClass="form-subtitle" />
+    </VBox>
+
+    <VBox styleClass="form-body" spacing="14">
+
+        <VBox spacing="5">
+            <Label text="NOMBRE DE USUARIO" styleClass="field-label" />
+            <TextField fx:id="txfUsername" promptText="Ej: jperez"
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="CONTRASEÑA" styleClass="field-label" />
+            <PasswordField fx:id="txfPassword" promptText="Mínimo 6 caracteres"
+                           styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="NOMBRE COMPLETO" styleClass="field-label" />
+            <TextField fx:id="txfNombre" promptText="Ej: Juan Pérez"
+                       styleClass="input-field" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="TIPO DE USUARIO" styleClass="field-label" />
+            <ComboBox fx:id="cmbTipo" promptText="Seleccionar tipo..."
+                      styleClass="combo-field" maxWidth="Infinity" />
+        </VBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <CheckBox fx:id="chkActivo" text="Usuario activo"
+                      styleClass="form-checkbox" selected="true" />
+        </HBox>
+
+        <Label fx:id="lblError" styleClass="form-error"
+               visible="false" managed="false" wrapText="true" />
+
+    </VBox>
+
+    <HBox styleClass="form-footer" spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-ghost-sm" onAction="#cancelar" />
+        <Button fx:id="btnGuardar" text="Guardar Usuario"
+                styleClass="btn-primary-sm" onAction="#guardar"
+                defaultButton="true" />
+    </HBox>
+
+</VBox>

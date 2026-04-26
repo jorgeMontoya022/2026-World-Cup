@@ -23,7 +23,7 @@
             <Label text="Cuerpo tecnico de los 48 equipos participantes"
                    styleClass="page-subtitle" />
         </VBox>
-        <Button text="+ Nuevo Tecnico"
+        <Button fx:id="btnNuevo" text="+ Nuevo Tecnico"
                 styleClass="btn-primary-sm"
                 onAction="#abrirFormularioNuevo" />
     </HBox>

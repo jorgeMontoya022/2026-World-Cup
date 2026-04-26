@@ -23,7 +23,7 @@
             <Label text="1.152 jugadores registrados · 24 por equipo"
                    styleClass="page-subtitle" />
         </VBox>
-        <Button text="+ Nuevo Jugador"
+        <Button fx:id="btnNuevo" text="+ Nuevo Jugador"
                 styleClass="btn-primary-sm"
                 onAction="#abrirFormularioNuevo" />
     </HBox>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.cup.world_app.controller.ConsultasController"
+      styleClass="page-container"
+      stylesheets="@../css/styles.css"
+      spacing="16"
+      maxWidth="Infinity" maxHeight="Infinity"
+      VBox.vgrow="ALWAYS">
+
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+    <HBox alignment="CENTER_LEFT" maxWidth="Infinity">
+        <VBox HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="🔍  CONSULTAS" styleClass="page-title" />
+            <Label text="Consultas especiales del sistema" styleClass="page-subtitle" />
+        </VBox>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" styleClass="grupos-scroll" VBox.vgrow="ALWAYS">
+        <VBox spacing="20">
+            <padding><Insets top="4" right="4" bottom="4" left="4"/></padding>
+
+            <!-- C1: Jugador más costoso por confederación -->
+            <VBox styleClass="group-card" spacing="0">
+                <Label text="C1 · Jugador más costoso por confederación"
+                       styleClass="group-header" maxWidth="Infinity" />
+                <TableView fx:id="tablaC1" prefHeight="200" maxWidth="Infinity" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colC1Confederacion" text="Confederación" minWidth="130" />
+                        <TableColumn fx:id="colC1Jugador"       text="Jugador"       minWidth="180" />
+                        <TableColumn fx:id="colC1Equipo"        text="Equipo"        minWidth="130" />
+                        <TableColumn fx:id="colC1Valor"         text="Valor"         minWidth="100" />
+                    </columns>
+                    <placeholder><Label text="Sin datos" /></placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- C2: Partidos en un estadio -->
+            <VBox styleClass="group-card" spacing="0">
+                <Label text="C2 · Partidos en un estadio" styleClass="group-header" maxWidth="Infinity" />
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <padding><Insets top="10" right="14" bottom="10" left="14"/></padding>
+                    <ComboBox fx:id="cmbEstadioC2" promptText="Seleccionar estadio..."
+                              styleClass="combo-field" prefWidth="300" />
+                    <Button text="Buscar" styleClass="btn-primary-sm" onAction="#ejecutarC2" />
+                </HBox>
+                <TableView fx:id="tablaC2" prefHeight="200" maxWidth="Infinity" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colC2Local"     text="Local"      minWidth="150" />
+                        <TableColumn fx:id="colC2Visitante" text="Visitante"  minWidth="150" />
+                        <TableColumn fx:id="colC2Fecha"     text="Fecha/Hora" minWidth="150" />
+                        <TableColumn fx:id="colC2Grupo"     text="Grupo"      minWidth="80"  />
+                    </columns>
+                    <placeholder><Label text="Seleccione un estadio y presione Buscar" /></placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- C3: Equipo más costoso por país sede -->
+            <VBox styleClass="group-card" spacing="0">
+                <Label text="C3 · Equipo más costoso por país sede (México, USA, Canadá)"
+                       styleClass="group-header" maxWidth="Infinity" />
+                <TableView fx:id="tablaC3" prefHeight="160" maxWidth="Infinity" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colC3Pais"   text="País sede"       minWidth="130" />
+                        <TableColumn fx:id="colC3Equipo" text="Equipo"          minWidth="180" />
+                        <TableColumn fx:id="colC3Valor"  text="Valor plantilla" minWidth="130" />
+                    </columns>
+                    <placeholder><Label text="Sin datos" /></placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- C4: Jugadores menores de 21 por equipo -->
+            <VBox styleClass="group-card" spacing="0">
+                <Label text="C4 · Cantidad de jugadores menores de 21 años por equipo"
+                       styleClass="group-header" maxWidth="Infinity" />
+                <TableView fx:id="tablaC4" prefHeight="200" maxWidth="Infinity" styleClass="group-table">
+                    <columns>
+                        <TableColumn fx:id="colC4Equipo"   text="Equipo"   minWidth="200" />
+                        <TableColumn fx:id="colC4Cantidad" text="Cantidad" minWidth="100" />
+                    </columns>
+                    <placeholder><Label text="Sin datos" /></placeholder>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>
