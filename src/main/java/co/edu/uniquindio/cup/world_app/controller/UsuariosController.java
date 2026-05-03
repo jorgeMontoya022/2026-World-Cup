@@ -61,6 +61,8 @@ public class UsuariosController {
         configurarFiltros();
         cargarTablaPermisos();
         cargarDatos();
+        tablaUsuarios.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tablaPermisos.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void configurarColumnas() {
@@ -74,8 +76,8 @@ public class UsuariosController {
         });
 
         colAcciones.setCellFactory(col -> new TableCell<>() {
-            private final Button btnEditar   = new Button("Editar");
-            private final Button btnEliminar = new Button("Eliminar");
+            private final Button btnEditar   = new Button("✏️");
+            private final Button btnEliminar = new Button("🗑️");
             {
                 btnEditar.getStyleClass().add("btn-ghost-sm");
                 btnEliminar.getStyleClass().add("btn-danger-sm");

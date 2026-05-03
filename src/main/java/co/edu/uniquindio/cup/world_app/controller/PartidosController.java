@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.GridPane;
 
 import java.sql.SQLException;
@@ -57,6 +58,7 @@ public class PartidosController {
         cargarFiltros();
         cargarDatos();
         if (btnNuevo != null) btnNuevo.setVisible(SessionManager.getInstancia().puedeEscribir());
+        tablaPartidos.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void configurarColumnas() {
@@ -71,24 +73,31 @@ public class PartidosController {
         colResultado.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getResultado()));
 
         colAcciones.setCellFactory(col -> new TableCell<>() {
-            private final Button btnEditar   = new Button("Editar");
-            private final Button btnEliminar = new Button("Eliminar");
+            private final Button btnEditar    = new Button("✏️");
+            private final Button btnEliminar  = new Button("🗑️");
+            private final Button btnResultado = new Button("⚽");
             {
                 btnEditar.getStyleClass().add("btn-ghost-sm");
                 btnEliminar.getStyleClass().add("btn-danger-sm");
+                btnResultado.getStyleClass().add("btn-primary-sm");
                 btnEditar.setOnAction(e -> editarPartido(getTableView().getItems().get(getIndex())));
                 btnEliminar.setOnAction(e -> eliminarPartido(getTableView().getItems().get(getIndex())));
+                btnResultado.setOnAction(e -> registrarResultado(getTableView().getItems().get(getIndex())));
             }
             @Override
             protected void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty) { setGraphic(null); return; }
-                if (SessionManager.getInstancia().puedeEscribir()) {
-                    javafx.scene.layout.HBox box = new javafx.scene.layout.HBox(4, btnEditar, btnEliminar);
-                    setGraphic(box);
-                } else {
-                    setGraphic(null);
-                }
+                if (!SessionManager.getInstancia().puedeEscribir()) { setGraphic(null); return; }
+
+                Partido p = getTableView().getItems().get(getIndex());
+                boolean partidoTerminado = p.getFechaHora() != null
+                        && p.getFechaHora().isBefore(LocalDateTime.now());
+
+                javafx.scene.layout.HBox box = new javafx.scene.layout.HBox(4);
+                box.getChildren().addAll(btnEditar, btnEliminar);
+                if (partidoTerminado) box.getChildren().add(btnResultado);
+                setGraphic(box);
             }
         });
 
@@ -173,6 +182,49 @@ public class PartidosController {
         } catch (SQLException e) {
             AlertaUtil.error("Error", e.getMessage());
         }
+    }
+
+    private void registrarResultado(Partido partido) {
+        Dialog<int[]> dialog = new Dialog<>();
+        dialog.setTitle("Registrar Resultado");
+        dialog.setHeaderText(partido.getDescripcion());
+
+        ButtonType btnGuardar = new ButtonType("Guardar", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(btnGuardar, ButtonType.CANCEL);
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10); grid.setVgap(10);
+        grid.setPadding(new Insets(20));
+
+        Spinner<Integer> spnLocal     = new Spinner<>(0, 99, 0);
+        Spinner<Integer> spnVisitante = new Spinner<>(0, 99, 0);
+        spnLocal.setEditable(true);
+        spnVisitante.setEditable(true);
+
+        // Precargar goles si ya tenía resultado
+        if (partido.getGolesLocal() != null)     spnLocal.getValueFactory().setValue(partido.getGolesLocal());
+        if (partido.getGolesVisitante() != null) spnVisitante.getValueFactory().setValue(partido.getGolesVisitante());
+
+        grid.add(new Label(partido.getEquipoLocalNombre() + ":"),     0, 0);
+        grid.add(spnLocal,                                             1, 0);
+        grid.add(new Label(partido.getEquipoVisitanteNombre() + ":"), 0, 1);
+        grid.add(spnVisitante,                                         1, 1);
+
+        dialog.getDialogPane().setContent(grid);
+        dialog.setResultConverter(bt -> bt == btnGuardar
+                ? new int[]{spnLocal.getValue(), spnVisitante.getValue()} : null);
+
+        dialog.showAndWait().ifPresent(goles -> {
+            try {
+                service.registrarResultado(partido.getId(), goles[0], goles[1]);
+                cargarDatos();
+                AlertaUtil.info("Éxito", "Resultado registrado: "
+                        + partido.getEquipoLocalNombre() + " " + goles[0]
+                        + " - " + goles[1] + " " + partido.getEquipoVisitanteNombre());
+            } catch (Exception ex) {
+                AlertaUtil.error("Error", ex.getMessage());
+            }
+        });
     }
 
     private void mostrarFormulario(Partido partidoEditar) {

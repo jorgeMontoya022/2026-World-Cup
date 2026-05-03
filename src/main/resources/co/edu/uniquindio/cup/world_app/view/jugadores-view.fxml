@@ -58,15 +58,15 @@
                maxHeight="Infinity">
 
         <columns>
-            <TableColumn fx:id="colNumero"   text="Num"             minWidth="50"  />
-            <TableColumn fx:id="colNombre"   text="Jugador"         minWidth="160" />
-            <TableColumn fx:id="colEquipo"   text="Equipo"          minWidth="130" />
-            <TableColumn fx:id="colPosicion" text="Posicion"        minWidth="120" />
-            <TableColumn fx:id="colEdad"     text="Edad"            minWidth="60"  />
-            <TableColumn fx:id="colPeso"     text="Peso"            minWidth="70"  />
-            <TableColumn fx:id="colEstatura" text="Estatura"        minWidth="80"  />
-            <TableColumn fx:id="colValor"    text="Valor"           minWidth="100" />
-            <TableColumn fx:id="colAcciones" text="Acciones"        minWidth="100" />
+            <TableColumn fx:id="colNumero"   text="Num"      prefWidth="55"  />
+            <TableColumn fx:id="colNombre"   text="Jugador"  prefWidth="180" />
+            <TableColumn fx:id="colEquipo"   text="Equipo"   prefWidth="150" />
+            <TableColumn fx:id="colPosicion" text="Posicion" prefWidth="130" />
+            <TableColumn fx:id="colEdad"     text="Edad"     prefWidth="65"  />
+            <TableColumn fx:id="colPeso"     text="Peso"     prefWidth="75"  />
+            <TableColumn fx:id="colEstatura" text="Estatura" prefWidth="85"  />
+            <TableColumn fx:id="colValor"    text="Valor"    prefWidth="110" />
+            <TableColumn fx:id="colAcciones" text="Acciones" prefWidth="120" />
         </columns>
 
         <placeholder>

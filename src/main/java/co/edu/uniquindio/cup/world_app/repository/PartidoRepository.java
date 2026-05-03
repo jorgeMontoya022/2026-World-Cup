@@ -100,6 +100,29 @@ public class PartidoRepository {
         return lista;
     }
 
+    public java.util.Optional<Partido> buscarPorId(int id) throws SQLException {
+        String sql = BASE_SELECT + " WHERE p.id = ?";
+        try (Connection con = ConexionDB.getInstancia().getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return java.util.Optional.of(mapear(rs));
+            }
+        }
+        return java.util.Optional.empty();
+    }
+
+    public void actualizarResultado(Partido p) throws SQLException {
+        String sql = "UPDATE partidos SET goles_local=?, goles_visitante=? WHERE id=?";
+        try (Connection con = ConexionDB.getInstancia().getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, p.getGolesLocal());
+            ps.setInt(2, p.getGolesVisitante());
+            ps.setInt(3, p.getId());
+            ps.executeUpdate();
+        }
+    }
+
     public void insertar(Partido p) throws SQLException {
         String sql = "INSERT INTO partidos (equipo_local_id, equipo_visitante_id, estadio_id, grupo_id, fecha_hora) VALUES (?,?,?,?,?)";
         try (Connection con = ConexionDB.getInstancia().getConexion();

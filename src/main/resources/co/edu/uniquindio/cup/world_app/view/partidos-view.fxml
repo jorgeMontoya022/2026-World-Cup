@@ -34,13 +34,13 @@
     <TableView fx:id="tablaPartidos" styleClass="data-table"
                VBox.vgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
         <columns>
-            <TableColumn fx:id="colGrupo"     text="Grupo"      minWidth="70"  />
-            <TableColumn fx:id="colLocal"     text="Local"      minWidth="150" />
-            <TableColumn fx:id="colVisitante" text="Visitante"  minWidth="150" />
-            <TableColumn fx:id="colEstadio"   text="Estadio"    minWidth="160" />
-            <TableColumn fx:id="colFecha"     text="Fecha/Hora" minWidth="150" />
-            <TableColumn fx:id="colResultado" text="Resultado"  minWidth="90"  />
-            <TableColumn fx:id="colAcciones"  text="Acciones"   minWidth="110" />
+            <TableColumn fx:id="colGrupo"     text="Grupo"      prefWidth="75"  />
+            <TableColumn fx:id="colLocal"     text="Local"      prefWidth="160" />
+            <TableColumn fx:id="colVisitante" text="Visitante"  prefWidth="160" />
+            <TableColumn fx:id="colEstadio"   text="Estadio"    prefWidth="170" />
+            <TableColumn fx:id="colFecha"     text="Fecha/Hora" prefWidth="150" />
+            <TableColumn fx:id="colResultado" text="Resultado"  prefWidth="95"  />
+            <TableColumn fx:id="colAcciones"  text="Acciones"   prefWidth="190" />
         </columns>
         <placeholder>
             <Label text="No se encontraron partidos" styleClass="table-placeholder" />

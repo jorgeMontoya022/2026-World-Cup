@@ -58,13 +58,13 @@
                maxHeight="Infinity">
 
         <columns>
-            <TableColumn fx:id="colBandera"  text="Bandera"          minWidth="50"  />
-            <TableColumn fx:id="colPais"     text="País / Equipo"    minWidth="120" />
-            <TableColumn fx:id="colConf"     text="Confederación"    minWidth="100" />
-            <TableColumn fx:id="colDt"       text="Director Técnico" minWidth="140" />
-            <TableColumn fx:id="colValor"    text="Valor Plantilla"  minWidth="100" />
-            <TableColumn fx:id="colGrupo"    text="Grupo"            minWidth="60"  />
-            <TableColumn fx:id="colAcciones" text="Acciones"         minWidth="100" />
+            <TableColumn fx:id="colBandera"  text="Bandera"          prefWidth="60"  />
+            <TableColumn fx:id="colPais"     text="País / Equipo"    prefWidth="150" />
+            <TableColumn fx:id="colConf"     text="Confederación"    prefWidth="120" />
+            <TableColumn fx:id="colDt"       text="Director Técnico" prefWidth="170" />
+            <TableColumn fx:id="colValor"    text="Valor Plantilla"  prefWidth="120" />
+            <TableColumn fx:id="colGrupo"    text="Grupo"            prefWidth="70"  />
+            <TableColumn fx:id="colAcciones" text="Acciones"         prefWidth="120" />
         </columns>
 
         <placeholder>

@@ -59,6 +59,7 @@ public class JugadoresController {
         cargarFiltros();
         cargarDatos();
         configurarPermisos();
+        tablaJugadores.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void configurarColumnas() {
@@ -76,8 +77,8 @@ public class JugadoresController {
                 String.format("%.2f M€", c.getValue().getValor())));
 
         colAcciones.setCellFactory(col -> new TableCell<>() {
-            private final Button btnEditar   = new Button("Editar");
-            private final Button btnEliminar = new Button("Eliminar");
+            private final Button btnEditar   = new Button("✏️");
+            private final Button btnEliminar = new Button("🗑️");
             {
                 btnEditar.getStyleClass().add("btn-ghost-sm");
                 btnEliminar.getStyleClass().add("btn-danger-sm");

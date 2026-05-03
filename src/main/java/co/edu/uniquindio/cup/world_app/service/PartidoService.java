@@ -39,6 +39,27 @@ public class PartidoService {
         repo.actualizar(p);
     }
 
+    public void registrarResultado(int id, int golesLocal, int golesVisitante)
+            throws SQLException, IllegalArgumentException {
+
+        Partido p = repo.buscarPorId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Partido no encontrado."));
+
+        if (p.getFechaHora() == null)
+            throw new IllegalArgumentException("El partido no tiene fecha asignada.");
+
+        if (p.getFechaHora().isAfter(java.time.LocalDateTime.now()))
+            throw new IllegalArgumentException(
+                    "No se puede registrar el resultado: el partido aún no ha terminado.");
+
+        if (golesLocal < 0 || golesVisitante < 0)
+            throw new IllegalArgumentException("Los goles no pueden ser negativos.");
+
+        p.setGolesLocal(golesLocal);
+        p.setGolesVisitante(golesVisitante);
+        repo.actualizarResultado(p);
+    }
+
     public void eliminar(int id) throws SQLException {
         repo.eliminar(id);
     }

@@ -42,14 +42,15 @@
     </HBox>
 
     <!-- ══ Tabla ══ -->
-    <TableView fx:id="tablaBitacora" maxHeight="Infinity" maxWidth="Infinity" styleClass="data-table" VBox.vgrow="ALWAYS">
-
+    <TableView fx:id="tablaBitacora" maxHeight="Infinity" maxWidth="Infinity"
+               styleClass="data-table"
+               VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colUsuario" minWidth="120" text="Usuario" />
-            <TableColumn fx:id="colTipo" minWidth="110" text="Tipo" />
-            <TableColumn fx:id="colEntrada" minWidth="160" text="Fecha entrada" />
-            <TableColumn fx:id="colSalida" minWidth="160" text="Fecha salida" />
-            <TableColumn fx:id="colDuracion" minWidth="100" prefWidth="118.0" text="Duracion" />
+            <TableColumn fx:id="colUsuario"  prefWidth="150" text="Usuario" />
+            <TableColumn fx:id="colTipo"     prefWidth="130" text="Tipo" />
+            <TableColumn fx:id="colEntrada"  prefWidth="190" text="Fecha entrada" />
+            <TableColumn fx:id="colSalida"   prefWidth="190" text="Fecha salida" />
+            <TableColumn fx:id="colDuracion" prefWidth="130" text="Duracion" />
         </columns>
 
         <placeholder>

@@ -57,6 +57,7 @@ public class EquiposController {
         cargarFiltros();
         cargarDatos();
         configurarPermisos();
+        tablaEquipos.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     // ── Configuración ─────────────────────────────────────────────────────────
@@ -77,8 +78,8 @@ public class EquiposController {
 
         // Columna acciones con botones Editar / Eliminar
         colAcciones.setCellFactory(col -> new TableCell<>() {
-            private final Button btnEditar   = new Button("Editar");
-            private final Button btnEliminar = new Button("Eliminar");
+            private final Button btnEditar   = new Button("✏️");
+            private final Button btnEliminar = new Button("🗑️");
             {
                 btnEditar.getStyleClass().add("btn-ghost-sm");
                 btnEliminar.getStyleClass().add("btn-danger-sm");

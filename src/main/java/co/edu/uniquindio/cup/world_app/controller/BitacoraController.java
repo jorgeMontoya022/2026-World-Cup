@@ -51,6 +51,7 @@ public class BitacoraController {
         }
         configurarColumnas();
         cargarDatos();
+        tablaBitacora.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void configurarColumnas() {

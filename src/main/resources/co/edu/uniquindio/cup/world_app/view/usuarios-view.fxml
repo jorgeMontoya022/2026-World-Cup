@@ -34,15 +34,16 @@
     </HBox>
 
     <!-- ══ Tabla de usuarios ══ -->
-    <TableView fx:id="tablaUsuarios" maxHeight="Infinity" maxWidth="Infinity" styleClass="data-table" VBox.vgrow="ALWAYS">
-
+    <TableView fx:id="tablaUsuarios" maxHeight="Infinity" maxWidth="Infinity"
+               styleClass="data-table"
+               VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colUsuario" minWidth="120" text="Usuario" />
-            <TableColumn fx:id="colNombre" minWidth="180" text="Nombre completo" />
-            <TableColumn fx:id="colTipo" minWidth="130" text="Tipo" />
-            <TableColumn fx:id="colEstado" minWidth="100" text="Estado" />
-            <TableColumn fx:id="colUltimoAcceso" minWidth="160" text="Ultimo acceso" />
-            <TableColumn fx:id="colAcciones" minWidth="110" text="Acciones" />
+            <TableColumn fx:id="colUsuario"      prefWidth="130" text="Usuario" />
+            <TableColumn fx:id="colNombre"       prefWidth="200" text="Nombre completo" />
+            <TableColumn fx:id="colTipo"         prefWidth="140" text="Tipo" />
+            <TableColumn fx:id="colEstado"       prefWidth="100" text="Estado" />
+            <TableColumn fx:id="colUltimoAcceso" prefWidth="170" text="Ultimo acceso" />
+            <TableColumn fx:id="colAcciones"     prefWidth="120" text="Acciones" />
         </columns>
 
         <placeholder>

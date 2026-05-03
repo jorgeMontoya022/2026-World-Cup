@@ -46,11 +46,11 @@
                maxHeight="Infinity">
 
         <columns>
-            <TableColumn fx:id="colNombre"      text="Nombre completo"  minWidth="180" />
-            <TableColumn fx:id="colNacionalidad" text="Nacionalidad"    minWidth="130" />
-            <TableColumn fx:id="colEquipo"       text="Equipo asignado" minWidth="150" />
-            <TableColumn fx:id="colTitulos"      text="Titulos ganados" minWidth="130" />
-            <TableColumn fx:id="colAcciones"     text="Acciones"        minWidth="110" />
+            <TableColumn fx:id="colNombre"       text="Nombre completo"  prefWidth="220" />
+            <TableColumn fx:id="colNacionalidad" text="Nacionalidad"     prefWidth="150" />
+            <TableColumn fx:id="colEquipo"       text="Equipo asignado"  prefWidth="180" />
+            <TableColumn fx:id="colTitulos"      text="Titulos ganados"  prefWidth="120" />
+            <TableColumn fx:id="colAcciones"     text="Acciones"         prefWidth="130" />
         </columns>
 
         <placeholder>
