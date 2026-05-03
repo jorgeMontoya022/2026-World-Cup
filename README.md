@@ -159,4 +159,4 @@ src/
 
 ---
 
-> 📚 Proyecto académico desarrollado en la **Universidad del Quindío**.
+>  Proyecto académico desarrollado en la **Universidad del Quindío**.
