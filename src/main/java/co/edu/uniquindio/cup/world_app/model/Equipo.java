@@ -13,6 +13,7 @@ public class Equipo {
     private int grupoId;
     private String grupoNombre;
     private double valorPlantilla;   // en millones de euros
+    private String tecnicoNombre;    // nombre completo del DT (puede ser null)
 
     public Equipo() {}
 
@@ -54,6 +55,9 @@ public class Equipo {
 
     public double getValorPlantilla() { return valorPlantilla; }
     public void setValorPlantilla(double valorPlantilla) { this.valorPlantilla = valorPlantilla; }
+
+    public String getTecnicoNombre() { return tecnicoNombre; }
+    public void setTecnicoNombre(String tecnicoNombre) { this.tecnicoNombre = tecnicoNombre; }
 
     @Override
     public String toString() { return pais; }

@@ -7,13 +7,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Punto de entrada de la aplicación Mundial 2026.
+ */
 public class HelloApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/co/edu/uniquindio/cup/world_app/view/login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource(
+                        "/co/edu/uniquindio/cup/world_app/view/login-view.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setTitle("Mundial 2026 — Sistema de Gestión");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

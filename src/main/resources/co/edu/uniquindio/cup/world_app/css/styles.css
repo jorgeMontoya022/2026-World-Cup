@@ -626,3 +626,323 @@
     -fx-background-color: transparent;
     -fx-pref-height: 0;
 }
+
+/* ════════════════════════════════
+   REPORTES
+════════════════════════════════ */
+.reporte-body {
+    -fx-padding: 14 16 0 16;
+}
+
+.reporte-desc {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9AA3B2;
+    -fx-font-style: italic;
+}
+
+.reporte-ok {
+    -fx-text-fill: #00843D;
+    -fx-font-size: 12px;
+    -fx-background-color: rgba(0,132,61,0.1);
+    -fx-border-color: rgba(0,132,61,0.3);
+    -fx-border-width: 1;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-padding: 8 12 8 12;
+}
+
+.date-field {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-width: 1;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-pref-height: 38;
+}
+
+.date-field:focused {
+    -fx-border-color: #F5C518;
+}
+
+/* ════════════════════════════════
+   ALERTAS
+════════════════════════════════ */
+.alert-warning {
+    -fx-text-fill: #F5C518;
+    -fx-font-size: 11px;
+    -fx-background-color: rgba(245,197,24,0.08);
+    -fx-border-color: rgba(245,197,24,0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-padding: 8 12 8 12;
+}
+
+/* ════════════════════════════════
+   FILTER BAR
+════════════════════════════════ */
+.filter-bar {
+    -fx-background-color: rgba(255,255,255,0.02);
+    -fx-border-color: rgba(255,255,255,0.06);
+    -fx-border-width: 1;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-padding: 10 14 10 14;
+}
+
+/* ════════════════════════════════
+   DASHBOARD
+════════════════════════════════ */
+
+/* ── Tarjetas de estadística ── */
+.stat-card {
+    -fx-background-color: #0D1F3C;
+    -fx-border-color: rgba(245,197,24,0.12);
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 20 16 20 16;
+    -fx-alignment: CENTER;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 0, 4);
+    -fx-cursor: default;
+}
+
+.stat-card:hover {
+    -fx-border-color: rgba(245,197,24,0.35);
+    -fx-background-color: #112240;
+}
+
+.stat-icon {
+    -fx-font-size: 28px;
+    -fx-alignment: CENTER;
+}
+
+.stat-number {
+    -fx-font-family: "Impact";
+    -fx-font-size: 36px;
+    -fx-text-fill: #F5C518;
+    -fx-alignment: CENTER;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9AA3B2;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+}
+
+/* ── Cuerpo de tarjetas inferiores ── */
+.dash-card-body {
+    -fx-padding: 16 18 16 18;
+}
+
+/* ── Países sede ── */
+.dash-country-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #F8F5EE;
+}
+
+.dash-country-count {
+    -fx-font-size: 13px;
+    -fx-text-fill: #F5C518;
+    -fx-font-weight: bold;
+}
+
+.dash-sep {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-padding: 0;
+}
+
+/* ── Jugador más valioso ── */
+.dash-mvp-nombre {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F5C518;
+    -fx-alignment: CENTER;
+    -fx-wrap-text: true;
+}
+
+.dash-mvp-equipo {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9AA3B2;
+    -fx-alignment: CENTER;
+}
+
+.dash-mvp-valor {
+    -fx-font-family: "Impact";
+    -fx-font-size: 28px;
+    -fx-text-fill: #00843D;
+    -fx-alignment: CENTER;
+}
+
+/* ── Info sesión ── */
+.dash-info-key {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9AA3B2;
+    -fx-font-weight: bold;
+    -fx-min-width: 70;
+}
+
+.dash-info-val {
+    -fx-font-size: 12px;
+    -fx-text-fill: #F8F5EE;
+}
+
+/* ── Mini tarjetas de grupos ── */
+.dash-grupo-mini {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-border-color: rgba(255,255,255,0.07);
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.dash-grupo-titulo {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F5C518;
+    -fx-padding: 0 0 4 0;
+    -fx-border-color: transparent transparent rgba(245,197,24,0.15) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.dash-grupo-equipo {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(248,245,238,0.8);
+}
+
+/* ════════════════════════════════
+   FORMULARIOS MODALES
+════════════════════════════════ */
+
+.form-root {
+    -fx-background-color: #0D1F3C;
+    -fx-border-color: rgba(245,197,24,0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 40, 0, 0, 10);
+}
+
+.form-top-bar {
+    -fx-background-color: linear-gradient(to right, #C1272D, #F5C518, #00843D);
+    -fx-background-radius: 4 4 0 0;
+}
+
+.form-header {
+    -fx-padding: 20 24 16 24;
+    -fx-border-color: transparent transparent rgba(255,255,255,0.06) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.form-title {
+    -fx-font-family: "Impact";
+    -fx-font-size: 20px;
+    -fx-text-fill: #F5C518;
+    -fx-letter-spacing: 2;
+}
+
+.form-subtitle {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9AA3B2;
+    -fx-font-style: italic;
+}
+
+.form-body {
+    -fx-padding: 20 24 16 24;
+    -fx-background-color: transparent;
+}
+
+.form-footer {
+    -fx-padding: 14 24 20 24;
+    -fx-border-color: rgba(255,255,255,0.06) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.form-error {
+    -fx-text-fill: #E85B5B;
+    -fx-font-size: 11px;
+    -fx-background-color: rgba(193,39,45,0.12);
+    -fx-border-color: rgba(193,39,45,0.3);
+    -fx-border-width: 1;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-padding: 7 12 7 12;
+}
+
+.form-checkbox {
+    -fx-text-fill: #9AA3B2;
+    -fx-font-size: 12px;
+}
+
+.form-checkbox:selected {
+    -fx-text-fill: #F8F5EE;
+}
+
+/* ════════════════════════════════
+   REPORTES — NUEVO DISEÑO
+════════════════════════════════ */
+
+.reporte-sidebar {
+    -fx-background-color: #0D1F3C;
+    -fx-border-color: transparent rgba(245,197,24,0.1) transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.reporte-sidebar-header {
+    -fx-border-color: transparent transparent rgba(255,255,255,0.06) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.reporte-menu {
+    -fx-background-color: transparent;
+}
+
+.reporte-menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9AA3B2;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 11 16 11 16;
+    -fx-cursor: hand;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-border-width: 0;
+}
+
+.reporte-menu-item:hover {
+    -fx-background-color: rgba(255,255,255,0.04);
+    -fx-text-fill: #F8F5EE;
+}
+
+.reporte-menu-active {
+    -fx-background-color: rgba(245,197,24,0.1);
+    -fx-text-fill: #F5C518;
+    -fx-border-color: transparent transparent transparent #F5C518;
+    -fx-border-width: 0 0 0 2;
+    -fx-font-weight: bold;
+}
+
+.reporte-divider {
+    -fx-background-color: rgba(245,197,24,0.1);
+    -fx-pref-width: 1;
+}
+
+.reporte-detail-header {
+    -fx-border-color: transparent transparent rgba(255,255,255,0.06) transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: rgba(0,0,0,0.1);
+}
+
+.reporte-detail-title {
+    -fx-font-family: "Impact";
+    -fx-font-size: 20px;
+    -fx-text-fill: #F5C518;
+    -fx-letter-spacing: 2;
+}
+
+.reporte-detail-desc {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9AA3B2;
+    -fx-font-style: italic;
+}

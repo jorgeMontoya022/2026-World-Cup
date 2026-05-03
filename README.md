@@ -29,7 +29,7 @@
 ---
 
 ## ✅ Requisitos previos
-
+it
 Antes de ejecutar el proyecto, asegúrate de tener instalado:
 
 - **JDK 21** o superior

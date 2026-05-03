@@ -51,26 +51,25 @@
 
     </TableView>
 
-    <!-- ══ Tabla de permisos ══ -->
-    <VBox spacing="0" styleClass="group-card">
-        <Label maxWidth="Infinity" styleClass="group-header" text="Permisos por tipo de usuario" />
-
-        <TableView fx:id="tablaPermisos" fixedCellSize="36" maxWidth="Infinity" prefHeight="190" styleClass="group-table">
-            <columns>
-                <TableColumn fx:id="colPermiso" minWidth="220" prefWidth="240.00001462300617" text="Permiso" />
-                <TableColumn fx:id="colAdmin" minWidth="120" prefWidth="170.6666717529297" text="Administrador" />
-                <TableColumn fx:id="colTradicional" minWidth="120" prefWidth="165.33334350585938" text="Tradicional" />
-                <TableColumn fx:id="colEsporadico" minWidth="120" prefWidth="225.99993896484375" text="Esporadico" />
-            </columns>
-            <placeholder><Label text="" /></placeholder>
-        </TableView>
-    </VBox>
-
     <!-- ══ Paginación ══ -->
     <HBox alignment="CENTER_RIGHT" spacing="10">
         <Label fx:id="lblPaginacion" styleClass="pagination-info" text="Mostrando 1-10 de 0 usuarios" />
         <Button fx:id="btnAnterior" disable="true" onAction="#paginaAnterior" styleClass="btn-ghost-sm" text="Anterior" />
         <Button fx:id="btnSiguiente" onAction="#paginaSiguiente" styleClass="btn-ghost-sm" text="Siguiente" />
     </HBox>
+
+    <!-- ══ Tabla de permisos por rol ══ -->
+    <Label styleClass="section-title" text="Permisos por tipo de usuario" />
+    <TableView fx:id="tablaPermisos" maxHeight="200" maxWidth="Infinity" styleClass="data-table">
+        <columns>
+            <TableColumn fx:id="colPermiso" minWidth="200" text="Permiso" />
+            <TableColumn fx:id="colAdmin" minWidth="100" text="Administrador" />
+            <TableColumn fx:id="colTradicional" minWidth="100" text="Tradicional" />
+            <TableColumn fx:id="colEsporadico" minWidth="100" text="Esporádico" />
+        </columns>
+        <placeholder>
+            <Label styleClass="table-placeholder" text="Sin datos" />
+        </placeholder>
+    </TableView>
 
 </VBox>

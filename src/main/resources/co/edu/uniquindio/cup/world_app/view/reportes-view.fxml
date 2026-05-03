@@ -1,217 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
+<HBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="co.edu.uniquindio.cup.world_app.controller.ReportesController"
       styleClass="page-container"
       stylesheets="@../css/styles.css"
-      spacing="16"
-      maxWidth="Infinity"
-      maxHeight="Infinity"
+      spacing="0"
+      maxWidth="Infinity" maxHeight="Infinity"
       VBox.vgrow="ALWAYS">
 
-    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+    <!-- ══ PANEL IZQUIERDO — lista de reportes ══ -->
+    <VBox styleClass="reporte-sidebar" spacing="0" minWidth="240" maxWidth="240">
 
-    <!-- ══ Encabezado ══ -->
-    <HBox alignment="CENTER_LEFT" maxWidth="Infinity">
-        <VBox HBox.hgrow="ALWAYS" spacing="4">
-            <Label text="REPORTES PDF" styleClass="page-title" />
-            <Label text="Generacion de reportes exportables" styleClass="page-subtitle" />
+        <VBox styleClass="reporte-sidebar-header" spacing="4">
+            <padding><Insets top="24" right="20" bottom="16" left="20"/></padding>
+            <Label text="📄  REPORTES PDF" styleClass="page-title" />
+            <Label text="Selecciona un reporte" styleClass="page-subtitle" />
         </VBox>
-    </HBox>
 
-    <!-- ══ Cuadrícula 2x2 de reportes ══ -->
-    <ScrollPane fitToWidth="true" styleClass="grupos-scroll" VBox.vgrow="ALWAYS">
-        <GridPane hgap="16" vgap="16">
-            <padding><Insets top="4" right="4" bottom="4" left="4"/></padding>
+        <VBox spacing="2" styleClass="reporte-menu">
+            <padding><Insets top="12" right="8" bottom="12" left="8"/></padding>
 
-            <!-- ══ R1: Usuarios por fecha/hora ══ -->
-            <VBox styleClass="group-card" spacing="14"
-                  GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <padding><Insets top="0" right="0" bottom="16" left="0"/></padding>
+            <Button fx:id="btnMenuR1"
+                    text="R1 · Usuarios por fecha"
+                    styleClass="reporte-menu-item, reporte-menu-active"
+                    maxWidth="Infinity"
+                    onAction="#seleccionarR1" />
 
-                <Label text="R1 · Usuarios por Fecha y Hora"
-                       styleClass="group-header" maxWidth="Infinity" />
+            <Button fx:id="btnMenuR2"
+                    text="R2 · Jugadores por físico"
+                    styleClass="reporte-menu-item"
+                    maxWidth="Infinity"
+                    onAction="#seleccionarR2" />
 
-                <VBox spacing="12" styleClass="reporte-body">
-                    <Label text="Rango de fechas y horas en que los usuarios ingresaron y salieron del sistema."
-                           styleClass="reporte-desc" wrapText="true" />
+            <Button fx:id="btnMenuR3"
+                    text="R3 · Valor por confederación"
+                    styleClass="reporte-menu-item"
+                    maxWidth="Infinity"
+                    onAction="#seleccionarR3" />
 
-                    <GridPane hgap="10" vgap="10">
-                        <columnConstraints>
-                            <ColumnConstraints percentWidth="50" />
-                            <ColumnConstraints percentWidth="50" />
-                        </columnConstraints>
+            <Button fx:id="btnMenuR4"
+                    text="R4 · Partidos por país sede"
+                    styleClass="reporte-menu-item"
+                    maxWidth="Infinity"
+                    onAction="#seleccionarR4" />
+        </VBox>
 
-                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                            <Label text="FECHA DESDE" styleClass="field-label" />
-                            <DatePicker fx:id="dpR1Desde"
-                                        styleClass="date-field"
-                                        maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                            <Label text="FECHA HASTA" styleClass="field-label" />
-                            <DatePicker fx:id="dpR1Hasta"
-                                        styleClass="date-field"
-                                        maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                            <Label text="HORA DESDE" styleClass="field-label" />
-                            <TextField fx:id="txfR1HoraDesde"
-                                       promptText="HH:mm"
-                                       styleClass="input-field"
-                                       maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                            <Label text="HORA HASTA" styleClass="field-label" />
-                            <TextField fx:id="txfR1HoraHasta"
-                                       promptText="HH:mm"
-                                       styleClass="input-field"
-                                       maxWidth="Infinity" />
-                        </VBox>
-                    </GridPane>
+    </VBox>
 
-                    <Button text="Generar Reporte PDF"
-                            styleClass="btn-primary"
-                            maxWidth="Infinity"
-                            onAction="#generarReporteUsuarios" />
-                </VBox>
-            </VBox>
+    <!-- Divisor vertical -->
+    <Separator orientation="VERTICAL" styleClass="reporte-divider" />
 
-            <!-- ══ R2: Jugadores por peso/estatura ══ -->
-            <VBox styleClass="group-card" spacing="14"
-                  GridPane.columnIndex="1" GridPane.rowIndex="0">
-                <padding><Insets top="0" right="0" bottom="16" left="0"/></padding>
+    <!-- ══ PANEL DERECHO — parámetros del reporte seleccionado ══ -->
+    <VBox HBox.hgrow="ALWAYS" spacing="0" maxWidth="Infinity">
 
-                <Label text="R2 · Jugadores por Peso y Estatura"
-                       styleClass="group-header" maxWidth="Infinity" />
+        <!-- Encabezado dinámico -->
+        <VBox styleClass="reporte-detail-header" spacing="4">
+            <padding><Insets top="24" right="32" bottom="20" left="32"/></padding>
+            <Label fx:id="lblReporteTitulo" text="R1 · Usuarios por Fecha y Hora"
+                   styleClass="reporte-detail-title" />
+            <Label fx:id="lblReporteDesc"
+                   text="Usuarios que ingresaron y salieron del sistema en un rango de fecha y hora."
+                   styleClass="reporte-detail-desc" wrapText="true" />
+        </VBox>
 
-                <VBox spacing="12" styleClass="reporte-body">
-                    <Label text="Filtrar jugadores segun su rango de peso y estatura por equipo."
-                           styleClass="reporte-desc" wrapText="true" />
+        <!-- Área de parámetros — solo uno visible a la vez -->
+        <StackPane VBox.vgrow="ALWAYS">
+            <padding><Insets top="24" right="32" bottom="24" left="32"/></padding>
 
-                    <GridPane hgap="10" vgap="10">
-                        <columnConstraints>
-                            <ColumnConstraints percentWidth="50" />
-                            <ColumnConstraints percentWidth="50" />
-                        </columnConstraints>
+            <!-- ── R1: Usuarios por fecha/hora ── -->
+            <VBox fx:id="panelR1" spacing="20" alignment="TOP_LEFT" maxWidth="480">
 
-                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                            <Label text="PESO MIN (kg)" styleClass="field-label" />
-                            <TextField fx:id="txfPesoMin"
-                                       promptText="Ej: 60"
-                                       styleClass="input-field"
-                                       maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                            <Label text="PESO MAX (kg)" styleClass="field-label" />
-                            <TextField fx:id="txfPesoMax"
-                                       promptText="Ej: 90"
-                                       styleClass="input-field"
-                                       maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                            <Label text="ESTATURA MIN (m)" styleClass="field-label" />
-                            <TextField fx:id="txfEstaturaMin"
-                                       promptText="Ej: 1.60"
-                                       styleClass="input-field"
-                                       maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                            <Label text="ESTATURA MAX (m)" styleClass="field-label" />
-                            <TextField fx:id="txfEstaturaMax"
-                                       promptText="Ej: 2.00"
-                                       styleClass="input-field"
-                                       maxWidth="Infinity" />
-                        </VBox>
-                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2"
-                              GridPane.columnSpan="2">
-                            <Label text="EQUIPO" styleClass="field-label" />
-                            <ComboBox fx:id="cmbR2Equipo"
-                                      promptText="Todos los equipos"
-                                      styleClass="combo-field"
-                                      maxWidth="Infinity" />
-                        </VBox>
-                    </GridPane>
+                <GridPane hgap="16" vgap="14">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
 
-                    <Button text="Generar Reporte PDF"
-                            styleClass="btn-primary"
-                            maxWidth="Infinity"
-                            onAction="#generarReporteJugadores" />
-                </VBox>
-            </VBox>
-
-            <!-- ══ R3: Valor jugadores por confederación ══ -->
-            <VBox styleClass="group-card" spacing="14"
-                  GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <padding><Insets top="0" right="0" bottom="16" left="0"/></padding>
-
-                <Label text="R3 · Valor Jugadores por Confederacion"
-                       styleClass="group-header" maxWidth="Infinity" />
-
-                <VBox spacing="12" styleClass="reporte-body">
-                    <Label text="Valor total de jugadores por equipo dentro de una confederacion."
-                           styleClass="reporte-desc" wrapText="true" />
-
-                    <VBox spacing="4">
-                        <Label text="CONFEDERACION" styleClass="field-label" />
-                        <ComboBox fx:id="cmbR3Confederacion"
-                                  promptText="Seleccionar confederacion..."
-                                  styleClass="combo-field"
-                                  maxWidth="Infinity" />
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="FECHA DESDE" styleClass="field-label" />
+                        <DatePicker fx:id="dpR1Desde" styleClass="date-field" maxWidth="Infinity" />
                     </VBox>
-
-                    <Button text="Generar Reporte PDF"
-                            styleClass="btn-primary"
-                            maxWidth="Infinity"
-                            onAction="#generarReporteValor" />
-                </VBox>
-            </VBox>
-
-            <!-- ══ R4: Partidos por país anfitrión ══ -->
-            <VBox styleClass="group-card" spacing="14"
-                  GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <padding><Insets top="0" right="0" bottom="16" left="0"/></padding>
-
-                <Label text="R4 · Partidos por Pais Anfitrion"
-                       styleClass="group-header" maxWidth="Infinity" />
-
-                <VBox spacing="12" styleClass="reporte-body">
-                    <Label text="Listar todos los equipos que se enfrentaran en cada pais sede."
-                           styleClass="reporte-desc" wrapText="true" />
-
-                    <VBox spacing="4">
-                        <Label text="PAIS ANFITRION" styleClass="field-label" />
-                        <ComboBox fx:id="cmbR4Pais"
-                                  promptText="Seleccionar pais..."
-                                  styleClass="combo-field"
-                                  maxWidth="Infinity" />
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="FECHA HASTA" styleClass="field-label" />
+                        <DatePicker fx:id="dpR1Hasta" styleClass="date-field" maxWidth="Infinity" />
                     </VBox>
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="HORA DESDE (HH:mm)" styleClass="field-label" />
+                        <TextField fx:id="txfR1HoraDesde" promptText="00:00"
+                                   styleClass="input-field" maxWidth="Infinity" />
+                    </VBox>
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="HORA HASTA (HH:mm)" styleClass="field-label" />
+                        <TextField fx:id="txfR1HoraHasta" promptText="23:59"
+                                   styleClass="input-field" maxWidth="Infinity" />
+                    </VBox>
+                </GridPane>
 
-                    <Button text="Generar Reporte PDF"
-                            styleClass="btn-primary"
-                            maxWidth="Infinity"
-                            onAction="#generarReportePartidos" />
-                </VBox>
+                <Button text="⬇  Generar PDF"
+                        styleClass="btn-primary"
+                        prefWidth="200"
+                        onAction="#generarReporteUsuarios" />
+
             </VBox>
 
-            <columnConstraints>
-                <ColumnConstraints percentWidth="50" />
-                <ColumnConstraints percentWidth="50" />
-            </columnConstraints>
+            <!-- ── R2: Jugadores por peso/estatura ── -->
+            <VBox fx:id="panelR2" spacing="20" alignment="TOP_LEFT"
+                  visible="false" managed="false" maxWidth="480">
 
-        </GridPane>
-    </ScrollPane>
+                <GridPane hgap="16" vgap="14">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
 
-    <!-- ══ Mensaje de confirmación ══ -->
-    <Label fx:id="lblMensaje"
-           styleClass="reporte-ok"
-           visible="false"
-           managed="false"
-           wrapText="true" />
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="PESO MÍNIMO (kg)" styleClass="field-label" />
+                        <TextField fx:id="txfPesoMin" promptText="Ej: 60"
+                                   styleClass="input-field" maxWidth="Infinity" />
+                    </VBox>
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="PESO MÁXIMO (kg)" styleClass="field-label" />
+                        <TextField fx:id="txfPesoMax" promptText="Ej: 90"
+                                   styleClass="input-field" maxWidth="Infinity" />
+                    </VBox>
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="ESTATURA MÍNIMA (m)" styleClass="field-label" />
+                        <TextField fx:id="txfEstaturaMin" promptText="Ej: 1.60"
+                                   styleClass="input-field" maxWidth="Infinity" />
+                    </VBox>
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="ESTATURA MÁXIMA (m)" styleClass="field-label" />
+                        <TextField fx:id="txfEstaturaMax" promptText="Ej: 2.00"
+                                   styleClass="input-field" maxWidth="Infinity" />
+                    </VBox>
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                          GridPane.columnSpan="2">
+                        <Label text="EQUIPO (opcional)" styleClass="field-label" />
+                        <ComboBox fx:id="cmbR2Equipo" promptText="Todos los equipos"
+                                  styleClass="combo-field" maxWidth="Infinity" />
+                    </VBox>
+                </GridPane>
 
-</VBox>
+                <Button text="⬇  Generar PDF"
+                        styleClass="btn-primary"
+                        prefWidth="200"
+                        onAction="#generarReporteJugadores" />
+            </VBox>
+
+            <!-- ── R3: Valor por confederación ── -->
+            <VBox fx:id="panelR3" spacing="20" alignment="TOP_LEFT"
+                  visible="false" managed="false" maxWidth="480">
+
+                <VBox spacing="6">
+                    <Label text="CONFEDERACIÓN" styleClass="field-label" />
+                    <ComboBox fx:id="cmbR3Confederacion"
+                              promptText="Seleccionar confederación..."
+                              styleClass="combo-field" maxWidth="Infinity" />
+                </VBox>
+
+                <Button text="⬇  Generar PDF"
+                        styleClass="btn-primary"
+                        prefWidth="200"
+                        onAction="#generarReporteValor" />
+            </VBox>
+
+            <!-- ── R4: Partidos por país anfitrión ── -->
+            <VBox fx:id="panelR4" spacing="20" alignment="TOP_LEFT"
+                  visible="false" managed="false" maxWidth="480">
+
+                <VBox spacing="6">
+                    <Label text="PAÍS ANFITRIÓN" styleClass="field-label" />
+                    <ComboBox fx:id="cmbR4Pais"
+                              promptText="Seleccionar país..."
+                              styleClass="combo-field" maxWidth="Infinity" />
+                </VBox>
+
+                <Button text="⬇  Generar PDF"
+                        styleClass="btn-primary"
+                        prefWidth="200"
+                        onAction="#generarReportePartidos" />
+            </VBox>
+
+        </StackPane>
+
+        <!-- Mensaje de resultado — visible en todos los reportes -->
+        <Label fx:id="lblMensaje" styleClass="reporte-ok"
+               visible="false" managed="false" wrapText="true">
+            <VBox.margin><Insets right="32" bottom="20" left="32"/></VBox.margin>
+        </Label>
+
+    </VBox>
+
+</HBox>
